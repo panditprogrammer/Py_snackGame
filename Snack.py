@@ -49,6 +49,7 @@ def gameloop():
 	init_velocity = 5
 	snake_size = 30
 	fps = 30
+
 	while not exit_game:
 		if game_over:
 			gameWindow.fill(white)
@@ -101,7 +102,6 @@ def gameloop():
 			text_screen("Score: " + str(score ), (0 , 193 , 49), 600, 5)
 			pygame.draw.rect(gameWindow, green, [food_x, food_y, snake_size, snake_size])
 
-
 			head = []
 			head.append(snake_x)
 			head.append(snake_y)
@@ -118,7 +118,10 @@ def gameloop():
 			plot_snake(gameWindow, black, snk_list, snake_size)
 		pygame.display.update()
 		clock.tick(fps)
-
+	
 	pygame.quit()
 	quit()
-gameloop()
+try:
+	gameloop()
+except:
+	pass
